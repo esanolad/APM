@@ -14,7 +14,7 @@ export class ProductListComponent
     filterProducts:IProduct[];
     showImage:boolean=false;
     showHide:string='Show Image';
-    _listFilter:string='cart';
+    _listFilter:string='';
     get listFilter():string{
         return this._listFilter;
     }
@@ -86,5 +86,8 @@ export class ProductListComponent
         return this.products.filter((el:IProduct)=>{
             return(el.productName.toLowerCase().indexOf(query.toLowerCase())>-1)
         })
+    }
+    onRatingClicked(event:number):void{
+        console.log(event);
     }
 }
