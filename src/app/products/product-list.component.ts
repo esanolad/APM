@@ -10,6 +10,7 @@ import { ProductService } from "./product.service";
 export class ProductListComponent 
                 implements OnInit {
     pageTitle:string='Product List';
+    errorMessage:string;
     imageWidth:number=50;
     imageMargin:number=2;
     filterProducts:IProduct[];
@@ -28,8 +29,15 @@ export class ProductListComponent
     }
     ngOnInit():void {
        // console.log('baba');
-        this.products=this.productService.getProducts();
-        this.filterProducts=this.filterProductName(this._listFilter);
+        this.productService.getProducts().subscribe(
+            product=>{
+                this.products=product;
+                this.filterProducts=this.filterProductName(this._listFilter);
+            },
+            error=> this.errorMessage=<any>error
+        );
+            
+        
     }
     
     products:IProduct[];
