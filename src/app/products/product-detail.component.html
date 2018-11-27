@@ -1,3 +1,31 @@
-<p>
-  product-detail works!
-</p>
+<div class="card" *ngIf='product'>
+  <div class= "card-header">
+      {{product.productName}}
+  </div>
+  <div class="class-body">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-4"><img [src]='product.imageUrl'></div>
+          <div class="col-sm-4">
+            <div class="row">
+              <div class="col-sm-12">{{product.productId}}</div>
+              <div class="col-sm-12">{{product.productName}}</div>
+              <div class="col-sm-12">{{product.productCode}}</div>
+              <div class="col-sm-12">{{product.description}}</div>
+              <div class="col-sm-12">{{product.price}}</div>
+              <div class="col-sm-12">{{product.starRating}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="card-footer">
+    <button class='btn btn-outline-secondary'
+    (click)='onBack()' 
+    style='width:80px'>
+    <i class='fa fa-chevron-left'></i> Back
+    </button>
+  </div>
+</div>
+
+
